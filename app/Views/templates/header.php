@@ -50,7 +50,7 @@
                            <a class="nav-item nav-link" href="boutique">Boutique</a>
                            <a class="nav-item nav-link" href="about">A propos</a>
                            <a class="nav-item nav-link" href="client">Clients</a>
-                           <a class="nav-item nav-link" href="contact">Contact</a>
+                           <a class="nav-item nav-link" href="contact">Contacts</a>
                         </div>
                     </div>
                     </nav>
