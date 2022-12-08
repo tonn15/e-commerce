@@ -377,7 +377,7 @@ nav.main-menu {
      text-align: center;
      font-size: 14pt;
      color: #fcfcfc;
-     background-color: #4bc714;
+     background-color: #2135c5;
      border: 0px;
      display: block;
 }
@@ -412,7 +412,7 @@ nav.main-menu {
      float: left;
      text-align: center;
      font-size: 32pt;
-     color: #4bc714;
+     color: #2135c5;
      padding-top: 35px;
 }
 
@@ -430,7 +430,7 @@ nav.main-menu {
     text-align: center;
     font-size: 15pt;
     color: #fcfcfc;
-    background-color: #4bc714;
+    background-color: #2135c5;
     border: 0px;
     display: block;
     height: 50px;
@@ -459,7 +459,7 @@ nav.main-menu {
     font-size: 44pt;
     text-align: center;
     color: #ffffff;
-    border-bottom: 4px solid#4bc714;
+    border-bottom: 4px solid#2135c5;
 }
 
 .lorem_text{
@@ -497,7 +497,7 @@ nav.main-menu {
      width: 96%;
      float: left;
      font-size: 17px;
-     color: #4bc714;
+     color: #2135c5;
      text-align: center;
 }
 
@@ -681,7 +681,7 @@ nav.main-menu {
 #main_slider .carousel-control-prev, #main_slider .carousel-control-next {
     width: 62px;
     height: 60px;
-    background: #4bc714;
+    background: #2135c5;
     opacity: 1;
     font-size: 30px;
     color: #fff;
