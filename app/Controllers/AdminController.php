@@ -37,19 +37,17 @@ class AdminController extends BaseController
             'image' => $nomImageAjoute,
         ];
         $Produits->insert($data);
-        return redirect()->to('steev-admin/produits'); 
+        return redirect()->to(base_url('steev-admin/produits')); 
         }
     }
-    
     public function supprimerProduit(){
         if (isset($_POST['id'])) {
             $Produits = new ProduitsModel();
             $id = $_POST['id'];
             $Produits->delete($id);
-            return redirect()->to('steev-admin/produits');
+            return redirect()->to(base_url('steev-admin/produits')); 
         } 
     }
-
     public function modificationProduit($id = 0){
         $produits = new ProduitsModel();
         $produit = $produits->find($id);
@@ -84,9 +82,8 @@ class AdminController extends BaseController
             'image' => $nomImageToAdd,
         ];
         $produits->update($id,$data);
-        return redirect()->to('steev-admin/produits');
+        return redirect()->to(base_url('steev-admin/produits')); 
     }
-    
     public function AfficherProduit($id = 0){
         $produits = new ProduitsModel();
         $produit = $produits->find($id);
@@ -98,7 +95,6 @@ class AdminController extends BaseController
             . view('pages/Admin/afficherProduit')
             . view('templates/Admin/footer');
     }
-
     private function ajoutImage($file, $dir){
         if(!isset($file['name']) || empty($file['name']))
             throw new Exception("Vous devez indiquer une image");
