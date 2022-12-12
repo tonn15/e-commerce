@@ -50,20 +50,23 @@ class AdminController extends BaseController
         } 
     }
 
-    public function modificationProduit(){
-        $Produits = new ProduitsModel();
-        $id = $_POST['id'];
+    public function modificationProduit($id = 0){
+        $produits = new ProduitsModel();
+        $produit = $produits->find($id);
         $data =[
-            'produit' =>$Produits->find($id),
+            'produit' =>$produit,
         ];
+        
         return view('templates/Admin/header', $data)
             . view('pages/Admin/modificationProduit')
             . view('templates/Admin/footer');
     }
     public function modificationProduitValidation(){
-        echo 'koto'; die();
-        $Produits = new ProduitsModel();
-        $imageActuelle = $Produits->find($_POST['id'])->find('image');
+        $request = service('request'); 
+        $postData = $request->getPost();
+        $id = $postData['id']; 
+        $produits = new ProduitsModel();
+        $imageActuelle =$produits->find($id)['image'] ;
         $file = $_FILES['image'];
 
         if($file['size'] > 0){
@@ -73,14 +76,27 @@ class AdminController extends BaseController
         } else {
             $nomImageToAdd = $imageActuelle;
         }
+
         $data =[
-            'titre' => $_POST['titre'],
-            'detail' => $_POST['detail'],
-            'prix' => $_POST['prix'],
-            'image' => $nomImageAjoute,
+            'titre' => $postData['titre'],
+            'detail' => $postData['detail'],
+            'prix' => $postData['prix'],
+            'image' => $nomImageToAdd,
         ];
-        $Produits->update($_POST['id'],$data);
-        header('Location: '. URL . "admin");
+        $produits->update($id,$data);
+        return redirect()->to('steev-admin/produits');
+    }
+    
+    public function AfficherProduit($id = 0){
+        $produits = new ProduitsModel();
+        $produit = $produits->find($id);
+        $data =[
+            'produit' =>$produit,
+        ];
+        
+        return view('templates/Admin/header', $data)
+            . view('pages/Admin/afficherProduit')
+            . view('templates/Admin/footer');
     }
 
     private function ajoutImage($file, $dir){

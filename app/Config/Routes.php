@@ -44,9 +44,14 @@ $routes->get('client', 'ClientController::index');
 $routes->get('steev-admin', 'AdminController::index');
 $routes->get('steev-admin/(:any)', 'AdminController::index/$1');
 $routes->post('steev-admin/a/(:any)', 'AdminController::ajouter/$1');
-$routes->post('steev-admin/(:any)', 'AdminController::modificationProduit/$1');
-$routes->post('steev-admin/m/(:any)', 'AdminController::modificationProduitValidation/$1');
+
+$routes->get('modificationProduit/(:num)', 'AdminController::modificationProduit/$1');
+$routes->post('modificationProduits/', 'AdminController::modificationProduitValidation/$1');
+
 $routes->post('steev-admin/s/(:any)', 'AdminController::supprimerProduit/$1');
+
+$routes->get('afficherProduit/(:num)', 'AdminController::AfficherProduit/$1');
+
 
 
 
