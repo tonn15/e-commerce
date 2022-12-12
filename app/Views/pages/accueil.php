@@ -1,5 +1,4 @@
 
-	<h2><?= $titre ?></h2>
 	<!-- banner section start -->
 	<div class="layout_padding banner_section">
 		<div class="container">

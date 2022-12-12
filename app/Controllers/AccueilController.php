@@ -6,13 +6,9 @@ use CodeIgniter\Controller;
 
 class AccueilController extends BaseController
 {
-    public function index($page = 'accueil'){
-        //print_r($db['default']);
-        $accueil = new AccueilModel();
-        $data = [
+   
 
-            'titre' => 'Liste de tâches',
-            ];
+    public function index($page = 'accueil'){
         if (! is_file(APPPATH . 'Views/pages/' . $page . '.php')) {
             // Whoops, we don't have a page for that!
             throw new \CodeIgniter\Exceptions\PageNotFoundException($page);
@@ -24,4 +20,15 @@ class AccueilController extends BaseController
             . view('pages/' . $page)
             . view('templates/footer');
     }
+    public function view()
+    {
+        $r = new AccueilModel();
+        $results = $r->test();
+        foreach ($results as $k ) {
+            echo $k->nom;
+            die();
+        }
+
+    }
+    
 }
