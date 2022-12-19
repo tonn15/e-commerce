@@ -36,6 +36,8 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'AccueilController::index');
+$routes->get('/about', 'AboutController::index');
+$routes->post('/a/(:any)', 'AccueilController::ajouter/$1');
 $routes->get('accueil', 'AccueilController::index');
 $routes->get('about', 'AboutController::index');
 $routes->get('contact', 'ContactController::index');
@@ -47,6 +49,8 @@ $routes->post('steev-admin/a/(:any)', 'AdminController::ajouter/$1');
 
 $routes->get('modificationProduit/(:num)', 'AdminController::modificationProduit/$1');
 $routes->post('modificationProduits/', 'AdminController::modificationProduitValidation/$1');
+$routes->post('modificationTitreHeader/', 'AdminController::modificationHeader/$1');
+$routes->post('modificationImageHeader/', 'AdminController::modificationImageHeader/$1');
 
 $routes->post('steev-admin/s/(:any)', 'AdminController::supprimerProduit/$1');
 

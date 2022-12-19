@@ -1,27 +1,32 @@
-
-	<!-- contact section start -->
-    <div class="contact_section layout_padding">
-    	<div class="container-fluid">
+<!-- contact section start -->
+<div class="contact_section layout_padding">
+    	<div class="container">
     		<div class="row">
     			<div class="col-md-6">
                     <div class="input_main">
                        <div class="container">
-                          <form action="/action_page.php">
+					   <?= session()->getFlashdata('error') ?>
+						<?= service('validation')->listErrors() ?>
+                        <form action="<?=base_url().'/a/ajouter'?>" method='POST'>
+						<?= csrf_field() ?>
                             <div class="form-group">
-                              <input type="text" class="email-bt" placeholder="Your Name" name="Name">
+                              <input type="text" class="email-bt" placeholder="Nom" name="nom">
                             </div>
                             <div class="form-group">
-                              <input type="text" class="email-bt" placeholder="Email" name="Email">
+                              <input type="email" class="email-bt" placeholder="Email" name="email">
                             </div>
                             <div class="form-group">
-                              <input type="text" class="email-bt" placeholder="Phone" name="Email">
+                              <input type="tel" class="email-bt" placeholder="Tel" name="tel">
                             </div>
-                            <form action="/action_page.php">
+
                                 <div class="form-group">
-                                  <textarea class="massage-bt" placeholder="Massage" rows="5" id="comment" name="text"></textarea>
+                                  <input type='textarea' class="massage-bt" placeholder="Massage" rows="5" id="comment" name="message">
                                 </div>
-                            </form>
-                          </form>
+
+							<div class="form-group">
+                        		<button type='submit' class="search_bt">Soumettre</button>
+                    		</div>
+                        </form>
                        </div> 
                     </div>
                 </div>

@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="viewport" content="initial-scale=1, maximum-scale=1">
 <!-- site metas -->
-<title>ADsiter</title>
+<title>E-commerce | <?= $title?></title>
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta name="author" content="">	
@@ -37,7 +37,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12 col-lg-3">
-					<div class="logo"><a href="accueil"><img src="images/logo.png"></a></div>
+					<div class="logo"><a href="accueil"><img style='width: 92px;' src="<?= base_url('images/E-Commerce.png')?>" class='img img-fluid '></a><h1 class="a-logo ">E-commerce</h1></div>
 				</div>
 				<div class="col-sm-6">
 					<nav class="navbar navbar-expand-lg navbar-light bg-light">

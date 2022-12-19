@@ -1,8 +1,12 @@
 <?php
 
 namespace App\Controllers;
-use App\Models\AccueilModel;
 use CodeIgniter\Controller;
+use App\Models\ProduitsModel;
+use App\Models\TitreHeaderModel;
+use App\Models\ImageHeaderModel;
+use App\Models\AboutModel;
+use App\Models\ContactModel;
 
 class AccueilController extends BaseController
 {
@@ -13,8 +17,19 @@ class AccueilController extends BaseController
             // Whoops, we don't have a page for that!
             throw new \CodeIgniter\Exceptions\PageNotFoundException($page);
         }
-
-        $data['title'] = ucfirst($page); // Capitalize the first letter
+        $produits = new ProduitsModel();
+        $produit = $produits->findAll();
+        $titreHeaders = new TitreHeaderModel();
+        $titreHeader=$titreHeaders->find(1);
+        $abouts = new AboutModel();
+        $about=$abouts->find(1);
+        $data = [
+            'title'=>$page,
+            'produits'=>$produit,
+            'titreHeader'=>$titreHeader,
+            'about'=>$about
+        
+        ]; 
 
         return view('templates/header', $data)
             . view('pages/' . $page)
@@ -29,6 +44,19 @@ class AccueilController extends BaseController
             die();
         }
 
+    }
+    public function ajouter(){
+        if (isset($_POST['nom']) && isset($_POST['email'])&& isset($_POST['tel']) && isset($_POST['message'])) {
+        $contact = new ContactModel();
+        $data =[
+            'nom' => $_POST['nom'],
+            'email' => $_POST['email'],
+            'tel' => $_POST['tel'],
+            'message' => $_POST['message'],
+        ];
+        $contact->insert($data);
+        return redirect()->to(base_url('/')); 
+        }
     }
     
 }

@@ -181,7 +181,7 @@ nav.main-menu {
 .submit_bt{
      font-size: 14pt; 
      color: #ffffff;
-     background-color: #2135c5;
+     background-color: #234e79;
      border: 0px;
      height: 50px;
      padding: 0px 20px;
@@ -223,10 +223,11 @@ nav.main-menu {
 .banner_section{ 
      width: 100%; 
      float: left;
-     background-image: url(../images/banner.png);
      height: auto;  
      background-size: 100%;
      background-repeat: no-repeat;
+     top: -33px;
+    position: relative;
 }
 
 .banner_taital{
@@ -257,7 +258,7 @@ nav.main-menu {
 .read_bt{
      width: 20%;
      height: 50px;
-     background-color: #2135c5;
+     background-color: #234e79;
      color: #ffffff;
      border: 0px;
      font-size: 17pt;
@@ -279,16 +280,16 @@ nav.main-menu {
      width: 100%;
      float: left;
      color: #b2b1b1;
-     border: 1px solid #2135c5;
+     border: 1px solid #234e79;
      padding: 10px 15px;
      font-size: 14pt;
 }
 
 .search_bt{
-     width: 90%;
+     width: 100%;
      float: left;
      color: #ffffff;
-     background-color: #2135c5;
+     background-color: #234e79;
      font-size: 14pt;
      border: 0px;
      height: 55px;
@@ -352,7 +353,6 @@ nav.main-menu {
     display: list-item;
     top: -35px;
     position: relative;
-    height: 50px;
     border: 0px;
     font-size: 14pt;
 }
@@ -377,7 +377,7 @@ nav.main-menu {
      text-align: center;
      font-size: 14pt;
      color: #fcfcfc;
-     background-color: #2135c5;
+     background-color: #234e79;
      border: 0px;
      display: block;
 }
@@ -412,7 +412,7 @@ nav.main-menu {
      float: left;
      text-align: center;
      font-size: 32pt;
-     color: #2135c5;
+     color: #234e79;
      padding-top: 35px;
 }
 
@@ -430,7 +430,7 @@ nav.main-menu {
     text-align: center;
     font-size: 15pt;
     color: #fcfcfc;
-    background-color: #2135c5;
+    background-color: #234e79;
     border: 0px;
     display: block;
     height: 50px;
@@ -459,7 +459,7 @@ nav.main-menu {
     font-size: 44pt;
     text-align: center;
     color: #ffffff;
-    border-bottom: 4px solid#2135c5;
+    border-bottom: 4px solid#234e79;
 }
 
 .lorem_text{
@@ -497,7 +497,7 @@ nav.main-menu {
      width: 96%;
      float: left;
      font-size: 17px;
-     color: #2135c5;
+     color: #234e79;
      text-align: center;
 }
 
@@ -523,7 +523,7 @@ nav.main-menu {
     margin-right: 3px;
     margin-left: 3px;
     text-indent: -999px;
-    background-color: #6dcf4b;
+    background-color: #234e79;
 }
 
 .carousel {
@@ -539,7 +539,6 @@ nav.main-menu {
 }
 .input_main {
     width: 75%;
-    float: right;
 }
 
 .email-bt {
@@ -558,9 +557,8 @@ nav.main-menu {
     border: none;
     color: #052501;
     width: 100%;
-    height: 160px;
     font-size: 22px;
-    padding: 20px;
+    padding: 20px 20px 114px 20px;
 }
 
 
@@ -594,7 +592,7 @@ nav.main-menu {
      float: left;
      font-size: 24pt;
      color: #ffffff;
-     border-bottom: 4px solid#3e7f21;
+     border-bottom: 4px solid#234e79;
      margin-bottom: 26px;
 }
 
@@ -615,7 +613,7 @@ nav.main-menu {
      float: left;
      font-size: 24pt;
      color: #ffffff;
-     border-bottom: 4px solid#3e7f21;
+     border-bottom: 4px solid#234e79;
      margin-bottom: 26px;
 }
 
@@ -644,7 +642,7 @@ nav.main-menu {
 .submit_text{
      width: 60%;
      float: left;
-     background-color: #3e7f21;
+     background-color: #234e79;
      color: #fbf5f5;
      border-radius: 5px;
      padding: 8px 15px;
@@ -663,7 +661,7 @@ nav.main-menu {
 .copyright{
      width: 100%;
      float: left;
-     background-color: #388417;
+     background-color: #234e79;
 }
 
 .copyright_text{
@@ -681,7 +679,7 @@ nav.main-menu {
 #main_slider .carousel-control-prev, #main_slider .carousel-control-next {
     width: 62px;
     height: 60px;
-    background: #2135c5;
+    background: #234e79;
     opacity: 1;
     font-size: 30px;
     color: #fff;
@@ -691,5 +689,15 @@ nav.main-menu {
 .copyright_text a{ color: #ffffff;}
 .copyright_text a:hover{ color: #000000;}
 
-
+.a-logo{
+     transform: rotate(-341deg);
+    left: 41px;
+    color: #234e79;
+    position: relative;
+    box-shadow: 0px 0px 8px 0px !important;
+    top: -89px;
+    text-align: center;
+    width: 124px;
+    font-size: 20px;
+}
 

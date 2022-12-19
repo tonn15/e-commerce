@@ -5,6 +5,9 @@ namespace App\Controllers;
 use CodeIgniter\Controller;
 use App\Models\AffichageModel;
 use App\Models\ProduitsModel;
+use App\Models\TitreHeaderModel;
+use App\Models\ImageHeaderModel;
+use App\Models\AboutModel;
 
 class AdminController extends BaseController
 {
@@ -14,15 +17,25 @@ class AdminController extends BaseController
             throw new \CodeIgniter\Exceptions\PageNotFoundException($page);
         }
 
+        $titreHeaders = new TitreHeaderModel();
+        $titreHeader=$titreHeaders->find(1);
+        $abouts = new AboutModel();
+        $about=$abouts->find(1);
         $Produits = new ProduitsModel();
         $results = $Produits->findAll();
-        $data = ['produits' => $results];
+        $data = [
+            'produits' => $results,
+            'title'=>$page,
+            'titreHeader'=>$titreHeader,
+            'about'=>$about
+        ];
 
-        $data['title'] = ucfirst($page); // Capitalize the first letter
-
+        #$data['title'] = ucfirst($page); // Capitalize the first letter
         return view('templates/Admin/header', $data)
             . view('pages/Admin/' . $page)
             . view('templates/Admin/footer');
+
+        
     }
     public function ajouter(){
         $file = $_FILES['image'];
@@ -62,6 +75,9 @@ class AdminController extends BaseController
     public function modificationProduitValidation(){
         $request = service('request'); 
         $postData = $request->getPost();
+        if (empty($postData['popular'])) {
+            $postData['popular'] = 0;
+        }
         $id = $postData['id']; 
         $produits = new ProduitsModel();
         $imageActuelle =$produits->find($id)['image'] ;
@@ -79,6 +95,7 @@ class AdminController extends BaseController
             'titre' => $postData['titre'],
             'detail' => $postData['detail'],
             'prix' => $postData['prix'],
+            'popular' => $postData['popular'],
             'image' => $nomImageToAdd,
         ];
         $produits->update($id,$data);
@@ -116,5 +133,58 @@ class AdminController extends BaseController
         if(!move_uploaded_file($file['tmp_name'], $target_file))
             throw new Exception("l'ajout de l'image n'a pas fonctionné");
         else return ($random."_".$file['name']);
+    }
+    public function modificationImageHeader(){
+        $request = service('request'); 
+        $postData = $request->getPost();
+        $image = new ImageHeaderModel();
+        $imageActuelle =$image->find($id)['image'] ;
+        $file = $_FILES['image'];
+
+        if($file['size'] > 0){
+            unlink("images/".$imageActuelle);
+            $repertoire = "images/";
+            $nomImageToAdd = $this->ajoutImage($file,$repertoire);
+        } else {
+            $nomImageToAdd = $imageActuelle;
+        }
+
+        $data =[
+            'image' => $nomImageToAdd,
+        ];
+        $produits->update(1,$data);
+        return redirect()->to(base_url('steev-admin/accueil')); 
+    }
+    public function modificationHeader($id = 0){
+        $request = service('request'); 
+        $postData = $request->getPost();
+        $titre = new TitreHeaderModel();
+        $about = new AboutModel();
+        if(isset($postData['txt1'])){
+            $data =[
+                'titre' => $postData['txt1'],
+            ];
+            $titre->update(1,$data);
+        }
+        if(isset($postData['content1'])){
+            $data =[
+                'content' => $postData['content1'],
+            ];
+            $titre->update(1,$data);
+        }
+        if(isset($postData['txt2'])){
+            $data =[
+                'titre' => $postData['txt2'],
+            ];
+            $about->update(1,$data);
+        }
+        if(isset($postData['content2'])){
+            $data =[
+                'content' => $postData['content2'],
+            ];
+            $about->update(1,$data);
+        }
+        
+        return redirect()->to(base_url('steev-admin/accueil')); 
     }
 }

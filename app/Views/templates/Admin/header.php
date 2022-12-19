@@ -29,6 +29,15 @@
 
     <!-- Template Stylesheet -->
     <link href="<?=base_url('admin/css/style.css')?>" rel="stylesheet">
+    <?php
+    if (!isset($title)) {
+        $title='admin';
+    }
+    else if ($title === 'accueil') {
+        ##<!-- Template Stylesheet -->
+        include_once('css.php');
+    }
+    ?>
 </head>
 
 <body>
@@ -67,7 +76,8 @@
                             <a href="signin.html" class="dropdown-item">Sign In</a>
                             <a href="signup.html" class="dropdown-item">Sign Up</a>
                             <a href="404.html" class="dropdown-item">404 Error</a>
-                            <a href="<?= base_url('steev-admin/produits')?>" class="dropdown-item active">Produits</a>
+                            <a href="<?= base_url('steev-admin/produits')?>" class="dropdown-item">Produits</a>
+                            <a href="<?= base_url('steev-admin/accueil')?>" class="dropdown-item">Accueil</a>
                         </div>
                     </div>
                 </div>

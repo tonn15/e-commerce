@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\ProduitsModel;
 
 class BoutiqueController extends BaseController
 {
@@ -12,7 +13,12 @@ class BoutiqueController extends BaseController
             throw new \CodeIgniter\Exceptions\PageNotFoundException($page);
         }
 
-        $data['title'] = ucfirst($page); // Capitalize the first letter
+        $produits = new ProduitsModel();
+        $produit = $produits->findAll();
+        $data =[
+            'title'=>$page,
+            'produits' =>$produit,
+        ];
 
         return view('templates/header', $data)
             . view('pages/' . $page)

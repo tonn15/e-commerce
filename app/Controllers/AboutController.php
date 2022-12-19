@@ -1,6 +1,8 @@
 <?php
 namespace App\Controllers;
 
+use App\Models\AboutModel;
+
 class AboutController extends BaseController {
 
     public function index($page = 'about'){
@@ -10,6 +12,13 @@ class AboutController extends BaseController {
         }
 
         $data['title'] = ucfirst($page); // Capitalize the first letter
+        $abouts = new AboutModel();
+        $about=$abouts->find(1);
+        $data = [
+            'about'=>$about,
+            'title'=>$page
+        
+        ]; 
 
         return view('templates/header', $data)
             . view('pages/' . $page)

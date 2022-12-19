@@ -34,6 +34,15 @@
 
     <!-- Template Javascript -->
     <script src="<?= base_url('admin/js/main.js')?>"></script>
+    <?php
+    if (!isset($title)) {
+        $title='admin';
+    }
+     else if ($title === 'accueil') {
+            ##<!-- Template Stylesheet -->
+            include_once('foot.php');
+        }
+    ?>
 </body>
 
 </html>
