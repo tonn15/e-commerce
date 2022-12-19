@@ -17,7 +17,6 @@
 				</div>
 				<div class="col-sm-6 col-md-6 col-lg-3">
 					<h1 class="subscribe_text">Subcribe email</h1>
-					<p class="ipsum_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
 					<form action="<?=base_url().'/news/ajouter'?>" method='POST'>
 					<?= csrf_field() ?>
 						<input type="email" class="email_text" placeholder="Votre email" name="email">
