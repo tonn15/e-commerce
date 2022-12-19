@@ -7,6 +7,7 @@ use App\Models\TitreHeaderModel;
 use App\Models\ImageHeaderModel;
 use App\Models\AboutModel;
 use App\Models\ContactModel;
+use App\Models\NewsLetterModel;
 
 class AccueilController extends BaseController
 {
@@ -55,6 +56,16 @@ class AccueilController extends BaseController
             'message' => $_POST['message'],
         ];
         $contact->insert($data);
+        return redirect()->to(base_url('/')); 
+        }
+    }
+    public function newsAjouter(){
+        if (isset($_POST['email'])) {
+        $news = new NewsLetterModel();
+        $data =[
+            'email' => $_POST['email'],
+        ];
+        $news->insert($data);
         return redirect()->to(base_url('/')); 
         }
     }

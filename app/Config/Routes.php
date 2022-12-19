@@ -38,6 +38,7 @@ $routes->set404Override();
 $routes->get('/', 'AccueilController::index');
 $routes->get('/about', 'AboutController::index');
 $routes->post('/a/(:any)', 'AccueilController::ajouter/$1');
+$routes->post('/news/(:any)', 'AccueilController::newsAjouter/$1');
 $routes->get('accueil', 'AccueilController::index');
 $routes->get('about', 'AboutController::index');
 $routes->get('contact', 'ContactController::index');
