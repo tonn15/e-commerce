@@ -1,12 +1,11 @@
 <!-- contact section start -->
-<div class="contact_section layout_padding">
+<div class="contact_section layout_padding" style='top: -33px;position: relative;'>
     	<div class="container">
     		<div class="row">
     			<div class="col-md-6">
                     <div class="input_main">
                        <div class="container">
-					   <?= session()->getFlashdata('error') ?>
-						<?= service('validation')->listErrors() ?>
+
                         <form action="<?=base_url().'/a/ajouter'?>" method='POST'>
 						<?= csrf_field() ?>
                             <div class="form-group">

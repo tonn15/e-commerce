@@ -17,7 +17,7 @@ class BoutiqueController extends BaseController
         $produit = $produits->findAll();
         $data =[
             'title'=>$page,
-            'produits' =>$produit,
+            'produits' =>array_reverse($produit),
         ];
 
         return view('templates/header', $data)

@@ -35,7 +35,7 @@
                             </table>
                         <a href="<?= base_url('steev-admin/ajoutProduit')?>" class="btn btn-success d-block"><img src="<?=base_url().'/images/creat.png'?>" class='img img-fluide' width="20px;"></a>
                     </div>
-                    </div>
+                </div>
         </div>
     </div>
 </div>

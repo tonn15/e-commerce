@@ -27,6 +27,7 @@
                     <input type="file" class='form-control' name='image'>
                 </div>
                 <button type='submit' class='mt-3 btn btn-light'>Ajouter</button>
+                <a href='<?= base_url('steev-admin/produits')?>' class='mt-3 btn btn-light'>Retour</a>
             </form>
         </div>
     </div>

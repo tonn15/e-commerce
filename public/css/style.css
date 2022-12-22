@@ -701,5 +701,11 @@ nav.main-menu {
     font-size: 20px;
 }
 
-
+.an-user{
+     font-size: 14px;
+    position: absolute;
+    color: black;
+    right: 9px;
+    top: 5px;
+}
 

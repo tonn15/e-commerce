@@ -1,5 +1,5 @@
 	<!-- about section start -->
-  <div class="layout_padding about_section">
+  <div class="layout_padding about_section" style='top: -33px;position: relative;'>
     	<div class="container">
     		<div class="row">
     			<div class="col-sm-12">
