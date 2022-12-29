@@ -14,7 +14,7 @@ class ProduitsModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['titre','detail','prix','image','popular'];
+    protected $allowedFields    = ['titre','detail','prix','prix_pro','image','popular'];
 
     // Dates
     protected $useTimestamps = false;

@@ -2,20 +2,20 @@
 
 namespace App\Controllers;
 
-use App\Models\ProduitsModel;
-use App\Models\TitreHeaderModel;
 use App\Models\AboutModel;
 use App\Models\ContactModel;
 use App\Models\NewsLetterModel;
+use App\Models\ProduitsModel;
+use App\Models\TitreHeaderModel;
 
 class AccueilController extends BaseController
 {
-    
+
 
     public function index($page = 'accueil')
     {
-        (isset($_SESSION['email']))?$user = $_SESSION('email'):$user='tsisy';
-        
+        (isset($_SESSION['email'])) ? $user = $_SESSION('email') : $user = 'tsisy';
+
         if (!is_file(APPPATH . 'Views/pages/' . $page . '.php')) {
             // Whoops, we don't have a page for that!
             throw new \CodeIgniter\Exceptions\PageNotFoundException($page);
@@ -31,7 +31,7 @@ class AccueilController extends BaseController
             'produits' => array_reverse($produit),
             'titreHeader' => $titreHeader,
             'about' => $about,
-            'user'=>$user,
+            'user' => $user,
 
         ];
 
@@ -39,15 +39,7 @@ class AccueilController extends BaseController
             . view('pages/' . $page)
             . view('templates/footer');
     }
-    public function view()
-    {
-        $r = new AccueilModel();
-        $results = $r->test();
-        foreach ($results as $k) {
-            echo $k->nom;
-            die();
-        }
-    }
+
     public function ajouter()
     {
         if (isset($_POST['nom']) && isset($_POST['email']) && isset($_POST['tel']) && isset($_POST['message'])) {

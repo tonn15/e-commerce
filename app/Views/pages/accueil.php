@@ -1,4 +1,3 @@
-
 <!-- banner section start -->
 <div class="layout_padding banner_section" style="background-image: url(../images/banner.png);">
 	<div class="container">
@@ -18,12 +17,12 @@
 		<div class="row">
 			<div class="col-sm-9">
 				<div class="form-group">
-					<input type="text" class="email_boton" placeholder="Search for" name="Email">
+					<input type="text" class="email_boton" placeholder="Search for">
 				</div>
 			</div>
 			<div class="col-sm-3">
 				<div class="form-group">
-					<button class="search_bt"><?= 'recherche'?></button>
+					<button class="search_bt">recherche</button>
 				</div>
 			</div>
 		</div>
@@ -33,18 +32,20 @@
 <!-- section PROMOTED start -->
 <div class=" layout_padding promoted_sectipon">
 	<div class="container">
-		<h1 class="promoted_text">PROMOTED <span style="border-bottom: 5px solid #234e79;">ADS</span></h1>
+		<h1 class="promoted_text"><span style="border-bottom: 5px solid #234e79;">Nos</span> PRODUITS</h1>
 		<div class="images_main">
 			<div class="row">
 				<?php foreach ($produits as $key => $produit) : ?>
 					<?php if ($key >= 8) break; ?>
 					<div class="col-sm-6 col-md-6 col-lg-3">
 						<div class="images"><a href="<?= base_url() . '/produit/' . $produit['id'] ?>"> <img src="<?= base_url() . '/images/' . $produit['image'] ?>" style="width: 100%;"></a></div>
-						<button class="promoted_bt" style='box-shadow: 0px 0px 8px 0px;'>
-							<?= $produit['titre'] ?><p class='text-center text-secondary' style='margin:0px'><?= $produit['prix'] ?> Ar</p>
-							<p class='text-center text-secondary' style='margin:0px;text-decoration: line-through;'>10 000 Ar</p>
+						<button class="promoted_bt" style='box-shadow: 0px 0px 8px 0px;margin: auto 12px;'>
+							<?= $produit['titre'] ?>
+							<p class='text-center text-secondary' style='margin:0px;text-decoration: line-through;margin: 0px;text-decoration: line-through;position: absolute;top: 21px;left: 18px;color: red !important;'><?= ($produit['prix_pro'] == 0) ? '' : $produit['prix'] . ' Eur' ?></p>
+							<p class='text-center text-secondary' style='margin:0px;color: #3ab93a !important;'> <?= ($produit['prix_pro'] <= 0) ? $produit['prix'] . ' Eur' : $produit['prix_pro'] . ' Eur' ?></p>
+
 						</button>
-						<button class="mobile_bt mb-4"><a href="#">Acheter</a></button>
+						<button class="mobile_bt mb-4 btn text-light"><a href="<?= base_url() . '/pannier/' . $produit['id'] ?>">Ajouter</a></button>
 					</div>
 				<?php endforeach ?>
 			</div>
@@ -55,7 +56,7 @@
 <!-- section POPULAR STORES start -->
 <div class="layout_padding popular_section">
 	<div class="container">
-		<h1 class="popular_taital">POPULAR <span style="border-bottom: 5px solid #234e79;">STORES</span></h1>
+		<h1 class="popular_taital">MAGASINS <span style="border-bottom: 5px solid #234e79;">POPULAIRES</span></h1>
 		<div id="main_slider" class="carousel slide" data-ride="carousel">
 			<div class="carousel-inner">
 				<?php foreach ($produits as $key => $produit) : ?>
@@ -66,10 +67,10 @@
 						?>
 						<div class="carousel-item <?= ($key == $tabs[0]) ? 'active' : ' '; ?>">
 							<div class="popular_section_2">
-								<div class="slider_img img img-fluid"><img src="<?= base_url() . '/images/' . $produit['image'] ?>" style="width: 400px;border-radius:20px"></div>
+								<div class="slider_img img img-fluid"><a href="<?= base_url() . '/produit/' . $produit['id'] ?>"> <img src="<?= base_url() . '/images/' . $produit['image'] ?>" style="width: 400px;border-radius:20px"></a></div>
 								<h2 class="electronic_text"><?= $produit['titre'] ?></h2>
 								<p class="contrary_text"><?= $produit['detail'] ?></p>
-								<button class="view_bt"><a href="#">VIEW ADS</a></button>
+								<button class="view_bt"><a href="<?= base_url() . '/pannier/' . $produit['id'] ?>">Ajouter</a></button>
 							</div>
 						</div>
 					<?php endif ?>
@@ -111,8 +112,8 @@
 				<div class="carousel-item active">
 					<div class="row">
 						<div class="col-sm-12">
-							<h1 class="promoted_text">CLIENTS <span style="border-bottom: 5px solid #234e79;">REVIEW</span></h1>
-							<div class="client_img"><img src="images/client-img.png" width='350' style='border-radius: 50%;'></div>
+							<h1 class="promoted_text"><span style="border-bottom: 5px solid #234e79;">AVIS</span> DES CLIENTS</h1>
+							<div class="client_img"><img src="<?= base_url('images/client-img.png') ?>" width='350' style='border-radius: 50%;'></div>
 							<h1 class="client_text">STEEV DANY</h1>
 							<p class="adiser_text">(adiser)</p>
 							<p class="long_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to</p>
@@ -123,7 +124,7 @@
 					<div class="row">
 						<div class="col-sm-12">
 							<h1 class="promoted_text">CLIENTS <span style="border-bottom: 5px solid #234e79;">REVIEW</span></h1>
-							<div class="client_img"><img src="images/client-img-1.jpg" width='350' style='border-radius: 50%;'></div>
+							<div class="client_img"><img src="<?= base_url('images/client-img-1.jpg') ?>" width='350' style='border-radius: 50%;'></div>
 							<h1 class="client_text">BAKO</h1>
 							<p class="adiser_text">(adiser)</p>
 							<p class="long_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to</p>
@@ -134,7 +135,7 @@
 					<div class="row">
 						<div class="col-sm-12">
 							<h1 class="promoted_text">CLIENTS <span style="border-bottom: 5px solid #234e79;">REVIEW</span></h1>
-							<div class="client_img"><img src="images/client-img-2.jpg" width='350' style='border-radius: 50%;'></div>
+							<div class="client_img"><img src="<?= base_url('images/client-img-2.jpg') ?>" width='350' style='border-radius: 50%;'></div>
 							<h1 class="client_text">ERIC STEWARD</h1>
 							<p class="adiser_text">(adiser)</p>
 							<p class="long_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to</p>

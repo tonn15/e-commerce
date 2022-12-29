@@ -4,21 +4,23 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-6 col-md-6 col-lg-3">
-				<div class="logo"><a href="<?= base_url('/')?>"><img style='width: 92px;' src="<?= base_url('images/E-Commerce.png')?>" class='img img-fluid '></a><h1 class="a-logo ">E-commerce</h1></div>
+					<div class="logo"><a href="<?= base_url('') ?>"><img style='width: 92px;' src="<?= base_url('images/E-Commerce.png') ?>" class='img img-fluid '></a>
+						<h1 class="a-logo ">E-commerce</h1>
+					</div>
 				</div>
 				<div class="col-sm-6 col-md-6 col-lg-3">
 					<h1 class="quick_text">Liens</h1>
-					<a class="chevron_arrow" href="<?= base_url('contact')?>"><i class="fa-solid fa-chevron-right" style='color: #234e79;'></i><span class="padding-left">Rejoignez-nous</span></a>
-					<a class="chevron_arrow" href="<?= base_url('boutique')?>"><i class="fa-solid fa-chevron-right" style='color: #234e79;'></i><span class="padding-left">Boutique</span></a>
-					<a class="chevron_arrow" href="<?= base_url('about')?>"><i class="fa-solid fa-chevron-right" style='color: #234e79;'></i><span class="padding-left">A-propos</span></a>
+					<a class="chevron_arrow" href="<?= base_url('contact') ?>"><i class="fa-solid fa-chevron-right" style='color: #234e79;'></i><span class="padding-left">Rejoignez-nous</span></a>
+					<a class="chevron_arrow" href="<?= base_url('boutique') ?>"><i class="fa-solid fa-chevron-right" style='color: #234e79;'></i><span class="padding-left">Boutique</span></a>
+					<a class="chevron_arrow" href="<?= base_url('about') ?>"><i class="fa-solid fa-chevron-right" style='color: #234e79;'></i><span class="padding-left">A-propos</span></a>
 				</div>
 				<div class="col-sm-6 col-md-6 col-lg-3">
 					<h1 class="subscribe_text">Newsletter</h1>
-					<form action="<?=base_url().'/news/ajouter'?>" method='POST'>
-					<?= csrf_field() ?>
+					<form action="<?= base_url() . '/news/ajouter' ?>" method='POST'>
+						<?= csrf_field() ?>
 						<input type="email" class="email_text" placeholder="Votre email" name="email">
 						<button class="submit_text">Envoyer</button>
-					<form>
+						<form>
 				</div>
 				<div class="col-sm-6 col-md-6 col-lg-3">
 					<h1 class="quick_text">Contact</h1>
@@ -31,39 +33,46 @@
 	</div>
 	<!-- footer section end -->
 	<!-- copyright section start -->
-    <div class="copyright">
-    	<p class="copyright_text">2022 Tous droits réservés. Conception par <a href="#"> Steev</p>
-    </div>
+	<div class="copyright">
+		<p class="copyright_text">2022 Tous droits réservés. Conception par <a href="#"> Steev</p>
+	</div>
 	<!-- copyright section end -->
-      <!-- Javascript files-->
-      <script src="<?= base_url().'/js/jquery.min.js'?>"></script>
-      <script src="<?= base_url().'/js/popper.min.js'?>"></script>
-      <script src="<?= base_url().'/js/bootstrap.bundle.min.js'?>"></script>
-      <script src="<?= base_url().'/js/jquery-3.0.0.min.js'?>"></script>
-      <script src="<?= base_url().'/js/plugin.js'?>"></script>
-      <!-- sidebar -->
-      <script src="<?= base_url().'/js/jquery.mCustomScrollbar.concat.min.js'?>"></script>
-      <script src="<?= base_url().'/js/custom.js'?>"></script>
-      <!-- javascript --> 
-      <script src="<?= base_url().'/js/owl.carousel.js'?>"></script>
-      <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
-      <script>
-         $(document).ready(function(){
-         $(".fancybox").fancybox({
-         openEffect: "none",
-         closeEffect: "none"
-         });
-         
-         $(".zoom").hover(function(){
-         
-         $(this).addClass('transition');
-         }, function(){
-         
-         $(this).removeClass('transition');
-         });
-         });
-         
-      </script> 
-    
-</body>
-</html>
+	<!-- Javascript files-->
+	<script src="<?= base_url() . '/js/jquery.min.js' ?>"></script>
+	<script src="<?= base_url() . '/js/popper.min.js' ?>"></script>
+	<script src="<?= base_url() . '/js/bootstrap.bundle.min.js' ?>"></script>
+	<script src="<?= base_url() . '/js/jquery-3.0.0.min.js' ?>"></script>
+	<script src="<?= base_url() . '/js/plugin.js' ?>"></script>
+	<!-- sidebar -->
+	<script src="<?= base_url() . '/js/jquery.mCustomScrollbar.concat.min.js' ?>"></script>
+	<script src="<?= base_url() . '/js/custom.js' ?>"></script>
+	<!-- javascript -->
+	<script src="<?= base_url() . '/js/owl.carousel.js' ?>"></script>
+	<script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$(".fancybox").fancybox({
+				openEffect: "none",
+				closeEffect: "none"
+			});
+
+			$(".zoom").hover(function() {
+
+				$(this).addClass('transition');
+			}, function() {
+
+				$(this).removeClass('transition');
+			});
+		});
+		function pannier() {
+			$(".pannier").show();
+		}
+		function pannierNone() {
+			$(".pannier").hide();
+		}
+	</script>
+	<?=($title=='pannier')?' <script src="https://js.stripe.com/v3/"></script>':''?>
+
+	</body>
+
+	</html>

@@ -57,16 +57,18 @@ class ConnexionController extends BaseController
 
         $passwords = $users->findColumn('password');
 
-        if (in_array($user,$emails) && in_array($password,$passwords)){
+        if (in_array($user, $emails) && in_array($password, $passwords)) {
             session_start();
             $_SESSION['email'] = $user;
-            
+            $_SESSION['pannier'] = array();
+
             return redirect()->to(base_url('/'));
-        }else {
+        } else {
             echo 'tsy ok';
             die();
             return redirect()->to(base_url('connexion'));
         }
+        
     }
     public function deconnexion()
     {

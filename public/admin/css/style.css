@@ -287,3 +287,11 @@
     background: var(--dark);
     border-color: var(--primary);
 }
+.an-notif{
+    font-size: 8px;
+      padding: 5px;
+      border-radius: 50%;
+      top: -16px;
+      position: relative;
+      color: #fff !important;
+  }

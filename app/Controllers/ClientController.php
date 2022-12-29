@@ -6,8 +6,9 @@ use App\Controllers\BaseController;
 
 class ClientController extends BaseController
 {
-    public function index($page = 'client'){
-        if (! is_file(APPPATH . 'Views/pages/' . $page . '.php')) {
+    public function index($page = 'client')
+    {
+        if (!is_file(APPPATH . 'Views/pages/' . $page . '.php')) {
             // Whoops, we don't have a page for that!
             throw new \CodeIgniter\Exceptions\PageNotFoundException($page);
         }

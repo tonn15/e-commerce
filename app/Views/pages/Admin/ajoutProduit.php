@@ -23,6 +23,10 @@
                     <input type="number" class='form-control' name='prix'>
                 </div>
                 <div class='form-group'>
+                    <label for="">Prix promo</label>
+                    <input type="number" class='form-control' name='prix_pro'>
+                </div>
+                <div class='form-group'>
                     <label for="">Image</label>
                     <input type="file" class='form-control' name='image'>
                 </div>
