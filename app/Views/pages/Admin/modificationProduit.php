@@ -1,6 +1,5 @@
 <!--Ajout Produits Start -->
-<?= session()->getFlashdata('error') ?>
-<?= service('validation')->listErrors() ?>
+
 
 
 <div class="container-fluid pt-4 px-4">
@@ -55,7 +54,7 @@
 
                             <div class="d-flex justify-content-between">
                                 <div class="d-flex flex-row align-items-center">
-                                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(4).webp" alt="avatar" width="40" height="40" style="border-radius: 50%;" class="img img-fluid" />
+                                    <i class=" fa-solid fa-user fa-1x" style="border: solid 1px gray;padding: 9px;border-radius: 50%;"></i>
                                     <p class="small mb-0 ms-2"><?= $comment['email'] ?></p>
                                 </div>
                                 <div class="d-flex flex-row align-items-center">

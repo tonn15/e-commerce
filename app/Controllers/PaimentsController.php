@@ -10,13 +10,12 @@ class PaimentsController extends BaseController
 {
     public function stripe()
     {
-        session_start();
         foreach ($_SESSION['pannier'] as $key => $pannier) {
             ($pannier['prix_pro'] > 0) ? $prix = $pannier['prix_pro'] : $prix = $pannier['prix'];
             $products_for_stripe[] = [
                 'price_data' => [
-                    'currency' => 'eur',
-                    'unit_amount' => $prix*100,
+                    'currency' => 'usd',
+                    'unit_amount' => $prix * 100,
                     'product_data' => [
                         'name' => $pannier['titre'],
                         'images' => [
@@ -40,7 +39,7 @@ class PaimentsController extends BaseController
             'mode' => 'payment',
             'success_url' => $YOUR_DOMAIN . '/success',
             'cancel_url' => $YOUR_DOMAIN . '/cancel',
-        ]); 
+        ]);
         header("HTTP/1.1 303 See Other");
         return redirect()->to($checkout_session->url);
     }

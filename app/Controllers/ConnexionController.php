@@ -35,17 +35,27 @@ class ConnexionController extends BaseController
     }
     public function ajouterinscription()
     {
+        $user = new UserModel();
+        $users = $user->findColumn('email');
+        $email = $_POST['email'];
 
-        if (isset($_POST['nom']) && isset($_POST['email']) && isset($_POST['password'])) {
+        if (isset($_POST['nom']) && isset($_POST['email']) && isset($_POST['password']) && !in_array($email, $users)) {
             $data = [
                 'nom' => $_POST['nom'],
-                'email' => $_POST['email'],
+                'email' => $email,
                 'password' => $_POST['password'],
                 'role' => 'user',
             ];
-            $user = new UserModel();
+
             $user->insert($data);
-            return redirect()->to(base_url('connexion'));
+            $_SESSION['email'] = $email;
+            $_SESSION['pannier'] = array();
+            $_SESSION['user'] = $user->where('email', $email)->first();
+            $url = base_url('/');
+            return redirect()->to($url);
+        } else {
+            $url = base_url('inscription');
+            return redirect()->to($url);
         }
     }
     public function connexion()
@@ -58,21 +68,21 @@ class ConnexionController extends BaseController
         $passwords = $users->findColumn('password');
 
         if (in_array($user, $emails) && in_array($password, $passwords)) {
-            session_start();
             $_SESSION['email'] = $user;
             $_SESSION['pannier'] = array();
-
+            $_SESSION['user'] = $users->where('email', $user)->first();
+            if ($_SESSION['user']['role'] == 'dj;fisjdkflhkjhdufhskdjhfjsdfuhjhsdkfhuihiuhdf') {
+                return redirect()->to(base_url('steev-admin'));
+            }
             return redirect()->to(base_url('/'));
         } else {
             echo 'tsy ok';
             die();
             return redirect()->to(base_url('connexion'));
         }
-        
     }
     public function deconnexion()
     {
-        session_start();
         session_destroy();
         return redirect()->to(base_url('connexion'));
     }

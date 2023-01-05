@@ -1,4 +1,4 @@
-<div class="container-fluid position-relative d-flex p-0" style='background:#234e79'>
+<div class="container-fluid position-relative d-flex p-0" style='background:#234e79;background-image: url(../images/Ecommerce-PNG-Clipart.png);'>
     <!-- Sign Up Start -->
     <div class="container-fluid">
         <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
@@ -19,13 +19,8 @@
                             <input type="password" class="form-control" id="floatingPassword" placeholder="Mot de passe" name="password">
                         </div>
                         <div class="d-flex align-items-center justify-content-between mb-4">
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label text-light" for="exampleCheck1">Afficher</label>
-                            </div>
-                            <a href="">Mot de passe oublier</a>
                         </div>
-                        <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Sign Up</button>
+                        <button type="submit" class="btn btn-info  w-100 mb-4">Connexion</button>
                     </form>
                     <p class="text-center mb-0">Creer un compte? <br> <a href="<?= base_url('inscription') ?>">S'inscrire</a></p>
                 </div>

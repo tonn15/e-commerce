@@ -1,5 +1,5 @@
 <!-- banner section start -->
-<div class="layout_padding banner_section" style="background-image: url(../images/banner.png);">
+<div class="layout_padding banner_section" style="background-image: url(../images/<?= $imageH ?>);">
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12">
@@ -11,24 +11,6 @@
 	</div>
 </div>
 <!-- banner section end -->
-<!-- search box start -->
-<div class="container">
-	<div class="search_box">
-		<div class="row">
-			<div class="col-sm-9">
-				<div class="form-group">
-					<input type="text" class="email_boton" placeholder="Search for">
-				</div>
-			</div>
-			<div class="col-sm-3">
-				<div class="form-group">
-					<button class="search_bt">recherche</button>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- search box end -->
 <!-- section PROMOTED start -->
 <div class=" layout_padding promoted_sectipon">
 	<div class="container">
@@ -41,8 +23,8 @@
 						<div class="images"><a href="<?= base_url() . '/produit/' . $produit['id'] ?>"> <img src="<?= base_url() . '/images/' . $produit['image'] ?>" style="width: 100%;"></a></div>
 						<button class="promoted_bt" style='box-shadow: 0px 0px 8px 0px;margin: auto 12px;'>
 							<?= $produit['titre'] ?>
-							<p class='text-center text-secondary' style='margin:0px;text-decoration: line-through;margin: 0px;text-decoration: line-through;position: absolute;top: 21px;left: 18px;color: red !important;'><?= ($produit['prix_pro'] == 0) ? '' : $produit['prix'] . ' Eur' ?></p>
-							<p class='text-center text-secondary' style='margin:0px;color: #3ab93a !important;'> <?= ($produit['prix_pro'] <= 0) ? $produit['prix'] . ' Eur' : $produit['prix_pro'] . ' Eur' ?></p>
+							<p class='text-center text-secondary' style='margin:0px;text-decoration: line-through;margin: 0px;text-decoration: line-through;position: absolute;top: 21px;left: 18px;color: red !important;'><?= ($produit['prix_pro'] == 0) ? '' : $produit['prix'] . ' $' ?></p>
+							<p class='text-center text-secondary' style='margin:0px;color: #3ab93a !important;'> <?= ($produit['prix_pro'] <= 0) ? $produit['prix'] . ' $' : $produit['prix_pro'] . ' $' ?></p>
 
 						</button>
 						<button class="mobile_bt mb-4 btn text-light"><a href="<?= base_url() . '/pannier/' . $produit['id'] ?>">Ajouter</a></button>
@@ -50,7 +32,9 @@
 				<?php endforeach ?>
 			</div>
 		</div>
+		<a href="<?= base_url('boutique') ?>" class="btn btn-outline-info mt-5 form-control">Affiche plus</a>
 	</div>
+
 </div>
 <!-- section PROMOTED end -->
 <!-- section POPULAR STORES start -->

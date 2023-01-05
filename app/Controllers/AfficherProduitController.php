@@ -5,8 +5,6 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\CommentModel;
 use App\Models\ProduitsModel;
-use Google\Service\AdExchangeBuyer\Dimension;
-use Stripe\Stripe;
 
 class AfficherProduitController extends BaseController
 {
@@ -14,7 +12,6 @@ class AfficherProduitController extends BaseController
     {
 
         $page = 'produit';
-        session_start();
         if (!isset($_SESSION['email'])) {
             return redirect()->to(base_url('connexion'));
         } else {
@@ -52,7 +49,6 @@ class AfficherProduitController extends BaseController
     }
     public function pannier($id = 0)
     {
-        session_start();
         if (!isset($_SESSION['email'])) {
             return redirect()->to(base_url('connexion'));
         } else {

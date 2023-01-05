@@ -1,5 +1,5 @@
 <!-- contact section start -->
-<div class="contact_section layout_padding" style='top: -33px;position: relative;'>
+<div class="contact_section layout_padding">
   <div class="container">
     <div class="row">
       <div class="col-md-6">

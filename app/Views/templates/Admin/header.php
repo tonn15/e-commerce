@@ -12,9 +12,9 @@
     <link href="img/favicon.ico" rel="icon">
 
     <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- link rel="preconnect" href="https://fonts.googleapis.com"-->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+    <!--link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet"-->
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -26,6 +26,7 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="<?= base_url('admin/css/bootstrap.min.css') ?>" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 
     <!-- Template Stylesheet -->
     <link href="<?= base_url('admin/css/style.css') ?>" rel="stylesheet">
@@ -48,8 +49,6 @@
             </div>
         </div>
         <!-- Spinner End -->
-
-
         <!-- Sidebar Start -->
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-secondary navbar-dark">
@@ -67,23 +66,22 @@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="index.html" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="<?= base_url('steev-admin') ?>" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
 
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Pages</a>
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="<?= base_url('steev-admin/accueil') ?>" class="dropdown-item">Accueil</a>
                             <a href="<?= base_url('steev-admin/produits') ?>" class="dropdown-item">Produits</a>
-                            <a href="<?= base_url('steev-admin/commentaire') ?>" class="dropdown-item">Commentaire</a>
-
+                            <a href="<?= base_url('steev-admin/contact') ?>" class="dropdown-item">Contact</a>
                         </div>
                     </div>
+                    <a href="<?= base_url('steev-admin/commentaire') ?>" class="nav-item nav-link "><i class="fa fa-bell me-lg-2 "></i>Commentaire</a>
+
                 </div>
             </nav>
         </div>
         <!-- Sidebar End -->
-
-
         <!-- Content Start -->
         <div class="content">
             <!-- Navbar Start -->
@@ -94,9 +92,7 @@
                 <a href="#" class="sidebar-toggler flex-shrink-0">
                     <i class="fa fa-bars"></i>
                 </a>
-                <form class="d-none d-md-flex ms-4">
-                    <input class="form-control bg-dark border-0" type="search" placeholder="Search">
-                </form>
+
                 <div class="navbar-nav align-items-center ms-auto">
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
@@ -118,7 +114,7 @@
                                             <input type="hidden" name="id" value="<?= $comment['id_prod'] ?>">
                                             <button type="submit" class="dropdown-item">
                                                 <div class="d-flex align-items-center">
-                                                    <img class="rounded-circle" src="<?= base_url('admin/img/user.jpg') ?>" alt="" style="width: 40px; height: 40px;">
+                                                    <i class=" fa-solid fa-user fa-1x" style="border: solid 1px white;padding: 9px;border-radius: 50%;"></i>
                                                     <div class="ms-2">
                                                         <h6 class="fw-normal mb-0" style="color: #fff;"><?= $comment['email'] ?></h6>
                                                         <small class="d-inline-block text-truncate" style="max-width: 150px;"><?= $comment['comment'] ?></small>
@@ -134,37 +130,13 @@
                     </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <i class="fa fa-bell me-lg-2"></i>
-                            <span class="d-none d-lg-inline-flex">Notificatin</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
-                            <a href="#" class="dropdown-item">
-                                <h6 class="fw-normal mb-0">Profile updated</h6>
-                                <small>15 minutes ago</small>
-                            </a>
-                            <hr class="dropdown-divider">
-                            <a href="#" class="dropdown-item">
-                                <h6 class="fw-normal mb-0">New user added</h6>
-                                <small>15 minutes ago</small>
-                            </a>
-                            <hr class="dropdown-divider">
-                            <a href="#" class="dropdown-item">
-                                <h6 class="fw-normal mb-0">Password changed</h6>
-                                <small>15 minutes ago</small>
-                            </a>
-                            <hr class="dropdown-divider">
-                            <a href="#" class="dropdown-item text-center">See all notifications</a>
-                        </div>
-                    </div>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <img class="rounded-circle me-lg-2" src="<?= base_url('admin/img/user.jpg') ?>" alt="" style="width: 40px; height: 40px;">
                             <span class="d-none d-lg-inline-flex">Steev</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
-                            <a href="#" class="dropdown-item">My Profile</a>
-                            <a href="#" class="dropdown-item">Settings</a>
-                            <a href="#" class="dropdown-item">Log Out</a>
+                            <a href="<?= base_url('/') ?>" class="dropdown-item">E-commerce
+                            </a>
+                            <a href="<?= base_url('deconnexion') ?>" class="dropdown-item">Deconnexion</a>
                         </div>
                     </div>
                 </div>

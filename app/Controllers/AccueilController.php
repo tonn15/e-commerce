@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\AboutModel;
 use App\Models\ContactModel;
+use App\Models\ImageHeaderModel;
 use App\Models\NewsLetterModel;
 use App\Models\ProduitsModel;
 use App\Models\TitreHeaderModel;
@@ -14,7 +15,7 @@ class AccueilController extends BaseController
 
     public function index($page = 'accueil')
     {
-        (isset($_SESSION['email'])) ? $user = $_SESSION('email') : $user = 'tsisy';
+
 
         if (!is_file(APPPATH . 'Views/pages/' . $page . '.php')) {
             // Whoops, we don't have a page for that!
@@ -26,12 +27,16 @@ class AccueilController extends BaseController
         $titreHeader = $titreHeaders->find(1);
         $abouts = new AboutModel();
         $about = $abouts->find(1);
+
+        $imageHs = new ImageHeaderModel();
+        $imageH = $imageHs->where('id', 1)->first();
+
         $data = [
             'title' => $page,
             'produits' => array_reverse($produit),
             'titreHeader' => $titreHeader,
             'about' => $about,
-            'user' => $user,
+            'imageH' => $imageH['image']
 
         ];
 

@@ -1,5 +1,5 @@
 <!--Ajout Produits Start -->
-<div class="container-fluid pt-4 px-4" style='top: -33px;position: relative;'>
+<div class="container-fluid pt-4 px-4">
   <div class="  rounded align-items-center justify-content-center pt-3 pb-3 ">
     <div class='row px-3'>
       <div class="col-md-6">
@@ -24,7 +24,7 @@
             <tr class="table-dark">
               <th>Produit</th>
               <th>Details</th>
-              <th>Prix en Euro</th>
+              <th>Prix en USD</th>
             </tr>
             <tr>
               <td class="align-middle"><?= $produit['titre'] ?></td>
@@ -51,7 +51,7 @@
 
                         <div class="d-flex justify-content-between">
                           <div class="d-flex flex-row align-items-center">
-                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(4).webp" alt="avatar" width="40" height="40" style="border-radius: 50%;" class="img img-fluid" />
+                            <i class=" fa-solid fa-user fa-2x" style="border: solid 1px black;padding: 9px;border-radius: 50%;"></i>
                             <p class="small mb-0 ms-2"><?= $comment['email'] ?></p>
                           </div>
                           <div class="d-flex flex-row align-items-center">

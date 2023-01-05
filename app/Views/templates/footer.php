@@ -1,5 +1,4 @@
 	<!-- footer section start -->
-
 	<div class="layout_padding footer_section">
 		<div class="container">
 			<div class="row">
@@ -15,12 +14,9 @@
 					<a class="chevron_arrow" href="<?= base_url('about') ?>"><i class="fa-solid fa-chevron-right" style='color: #234e79;'></i><span class="padding-left">A-propos</span></a>
 				</div>
 				<div class="col-sm-6 col-md-6 col-lg-3">
-					<h1 class="subscribe_text">Newsletter</h1>
-					<form action="<?= base_url() . '/news/ajouter' ?>" method='POST'>
-						<?= csrf_field() ?>
-						<input type="email" class="email_text" placeholder="Votre email" name="email">
-						<button class="submit_text">Envoyer</button>
-						<form>
+					<h1 class="subscribe_text">Sponsore</h1>
+					<a href="https://tonn15.github.io/antonio_cv.com/"><img src="<?= base_url('images/avitech.jpg') ?>" alt="" class="img-fluid" width="80"></a>
+
 				</div>
 				<div class="col-sm-6 col-md-6 col-lg-3">
 					<h1 class="quick_text">Contact</h1>
@@ -64,15 +60,16 @@
 				$(this).removeClass('transition');
 			});
 		});
+
 		function pannier() {
 			$(".pannier").show();
 		}
+
 		function pannierNone() {
 			$(".pannier").hide();
 		}
 	</script>
-	<?=($title=='pannier')?' <script src="https://js.stripe.com/v3/"></script>':''?>
-
+	<?= ($title == 'pannier') ? ' <script src="https://js.stripe.com/v3/"></script>' : '' ?>
 	</body>
 
 	</html>

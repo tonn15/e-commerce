@@ -140,14 +140,15 @@ a {
 .logo {
   width: 100%;
   float: left;
+  top: 22px;
+  position: relative;
 }
 
 .header_section {
   width: 100%;
   float: left;
   background-color: #ffffff;
-  height: auto;
-  padding: 20px 0;
+  height: 116px;
 }
 
 nav.main-menu {
@@ -224,7 +225,6 @@ nav.main-menu {
   height: auto;
   background-size: 100%;
   background-repeat: no-repeat;
-  top: -33px;
   position: relative;
 }
 
@@ -713,6 +713,12 @@ nav.main-menu {
   color: black;
   right: 9px;
   top: 5px;
+  padding-bottom: 2px;
+  border-bottom: solid 1px black;
+}
+.nom-user{
+  color: #000;
+  padding-right: 2px;
 }
 
 .an-submit_btn {
@@ -761,4 +767,11 @@ nav.main-menu {
   width: 473px;
     left: 52px;
     background-color: antiquewhite;
+}
+.dc-user{
+  font-size: 14px;
+    position: absolute;
+    color: black;
+    right: 9px;
+    top: 5px;
 }

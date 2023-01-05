@@ -2,6 +2,7 @@
 
 namespace Config;
 
+(isset($_SESSION) ? '' : session_start());
 // Create a new instance of our RouteCollection class.
 $routes = Services::routes();
 
@@ -46,8 +47,9 @@ $routes->get('pannier/supprimer/(:num)', 'AfficherProduitController::supprimerPa
 $routes->get('pannier/(:num)', 'AfficherProduitController::pannier/$1');
 $routes->get('about', 'AboutController::index');
 $routes->get('contact', 'ContactController::index');
+$routes->get('profile', 'ProfileController::index');
 $routes->get('boutique', 'BoutiqueController::index');
-$routes->get('clients', 'ClientController::index');
+$routes->get('client', 'ClientController::index');
 $routes->get('connexion', 'ConnexionController::index');
 $routes->get('payer', 'PaimentsController::stripe');
 $routes->get('deconnexion', 'ConnexionController::deconnexion');
@@ -55,18 +57,6 @@ $routes->get('inscription', 'ConnexionController::inscription');
 $routes->post('inscription/(:any)', 'ConnexionController::ajouterinscription/$1');
 $routes->post('commentaire/', 'CommentaireController::ajouterCommentaired/$1');
 $routes->post('connexion/(:any)', 'ConnexionController::connexion/$1');
-$routes->get('steev-admin', 'AdminController::index');
-$routes->get('steev-admin/(:any)', 'AdminController::index/$1');
-$routes->post('steev-admin/a/(:any)', 'AdminController::ajouter/$1');
-
-$routes->get('modificationProduit/(:num)', 'AdminController::modificationProduit/$1');
-$routes->post('modificationProduits/', 'AdminController::modificationProduitValidation/$1');
-$routes->post('modificationCommentaire/', 'AdminController::modificationProduitValidation/$1');
-$routes->post('modificationTitreHeader/', 'AdminController::modificationHeader/$1');
-$routes->post('modificationImageHeader/', 'AdminController::modificationImageHeader/$1');
-
-$routes->post('steev-admin/s/(:any)', 'AdminController::supprimerProduit/$1');
-
 $routes->get('afficherProduit/(:num)', 'AdminController::AfficherProduit/$1');
 
 
@@ -75,6 +65,18 @@ $routes->post('client', 'Client::store');
 $routes->get('client/(:num)', 'Client::show/$1');
 $routes->post('client/(:num)', 'Client::update/$1');
 $routes->delete('client/(:num)', 'Client::destroy/$1');
+
+if (isset($_SESSION['user']) && $_SESSION['user']['role'] == 'dj;fisjdkflhkjhdufhskdjhfjsdfuhjhsdkfhuihiuhdf') {
+    $routes->post('steev-admin/s/(:any)', 'AdminController::supprimerProduit/$1');
+    $routes->get('steev-admin', 'AdminController::index');
+    $routes->get('steev-admin/(:any)', 'AdminController::index/$1');
+    $routes->post('steev-admin/a/(:any)', 'AdminController::ajouter/$1');
+    $routes->get('modificationProduit/(:num)', 'AdminController::modificationProduit/$1');
+    $routes->post('modificationProduits/', 'AdminController::modificationProduitValidation/$1');
+    $routes->post('modificationCommentaire/', 'AdminController::modificationProduitValidation/$1');
+    $routes->post('modificationTitreHeader/', 'AdminController::modificationHeader/$1');
+    $routes->post('modificationImageHeader/', 'AdminController::modificationImageHeader/$1');
+}
 
 
 

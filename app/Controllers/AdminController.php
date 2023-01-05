@@ -4,11 +4,11 @@ namespace App\Controllers;
 
 use App\Models\AboutModel;
 use App\Models\CommentModel;
+use App\Models\ContactModel;
 use App\Models\ImageHeaderModel;
 use App\Models\ProduitsModel;
 use App\Models\TitreHeaderModel;
 use PHPUnit\Exception;
-use Stripe\Product;
 
 class AdminController extends BaseController
 {
@@ -18,7 +18,6 @@ class AdminController extends BaseController
             // Whoops, we don't have a page for that!
             throw new \CodeIgniter\Exceptions\PageNotFoundException($page);
         }
-
         $titreHeaders = new TitreHeaderModel();
         $titreHeader = $titreHeaders->find(1);
         $abouts = new AboutModel();
@@ -28,6 +27,11 @@ class AdminController extends BaseController
         $comments = new CommentModel();
         $comment = $comments->findAll();
         $c = 0;
+
+        $imageHs = new ImageHeaderModel();
+        $imageH = $imageHs->where('id', 1)->first();
+        $contact = new ContactModel();
+        $contact = $contact->findAll();
         foreach ($comment as $key => $comme) {
 
             if ($comme['valide'] == 1) {
@@ -42,6 +46,8 @@ class AdminController extends BaseController
             'co' => $comment,
             'c' => $c,
             'commentaire' => $comment,
+            'imageH' => $imageH['image'],
+            'contact' => $contact,
         ];
 
         #$data['title'] = ucfirst($page); // Capitalize the first letter
@@ -155,11 +161,13 @@ class AdminController extends BaseController
     }
     public function AfficherProduit($id = 0)
     {
+
         $produits = new ProduitsModel();
         $produit = $produits->find($id);
         $comment = new CommentModel();
         $comments = $comment->findAll();
         $c = 0;
+
         foreach ($comments as $key => $comme) {
 
             if ($comme['valide'] == 1) {
@@ -202,16 +210,18 @@ class AdminController extends BaseController
     }
     public function modificationImageHeader()
     {
+
         $produits = new ProduitsModel();
         $request = service('request');
         $postData = $request->getPost();
         $image = new ImageHeaderModel();
-        $imageActuelle = $image->find($id)['image'];
+        $imageActuelle = $image->find(1)['image'];
         $file = $_FILES['image'];
 
         if ($file['size'] > 0) {
-            unlink("images/" . $imageActuelle);
-            $repertoire = "images/";
+            unlink($_SERVER['DOCUMENT_ROOT'] . "/images/" . $imageActuelle);
+
+            $repertoire = $_SERVER['DOCUMENT_ROOT'] . "/images/";
             $nomImageToAdd = $this->ajoutImage($file, $repertoire);
         } else {
             $nomImageToAdd = $imageActuelle;
@@ -220,7 +230,7 @@ class AdminController extends BaseController
         $data = [
             'image' => $nomImageToAdd,
         ];
-        $produits->update(1, $data);
+        $image->update(1, $data);
         return redirect()->to(base_url('steev-admin/accueil'));
     }
     public function modificationHeader($id = 0)
