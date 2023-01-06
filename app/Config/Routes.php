@@ -48,6 +48,9 @@ $routes->get('profile', 'ProfileController::index');
 $routes->get('boutique', 'BoutiqueController::index');
 $routes->get('client', 'ClientController::index');
 $routes->get('afficherProduit/(:num)', 'AdminController::AfficherProduit/$1');
+$routes->get('pannier', 'AfficherProduitController::pannierPage');
+$routes->get('pannier/supprimer/(:num)', 'AfficherProduitController::supprimerPannier/$1');
+$routes->get('pannier/(:num)', 'AfficherProduitController::pannier/$1');
 
 if (!isset($_SESSION['user'])) {
     $routes->get('connexion', 'ConnexionController::index');
@@ -58,9 +61,7 @@ if (!isset($_SESSION['user'])) {
 if (isset($_SESSION['user'])) {
     $routes->get('deconnexion', 'ConnexionController::deconnexion');
     $routes->get('payer', 'PaimentsController::stripe');
-    $routes->get('pannier', 'AfficherProduitController::pannierPage');
-    $routes->get('pannier/supprimer/(:num)', 'AfficherProduitController::supprimerPannier/$1');
-    $routes->get('pannier/(:num)', 'AfficherProduitController::pannier/$1');
+
     $routes->post('commentaire', 'CommentaireController::ajouterCommentaired');
 }
 
