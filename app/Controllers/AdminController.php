@@ -78,7 +78,9 @@ class AdminController extends BaseController
         if (isset($_POST['id'])) {
             $Produits = new ProduitsModel();
             $id = $_POST['id'];
+            $imageActuelle = $Produits->where('id', $id)->first();
             $Produits->delete($id);
+            unlink($_SERVER['DOCUMENT_ROOT'] . "/images/" . $imageActuelle['image']);
             return redirect()->to(base_url('steev-admin/produits'));
         }
     }
