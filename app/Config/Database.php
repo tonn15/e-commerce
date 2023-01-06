@@ -39,7 +39,7 @@ class Database extends Config
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,
-        'DBDebug'  => (ENVIRONMENT !== 'production'),
+        'DBDebug'  => (ENVIRONMENT !== 'development'),
         'charset'  => 'utf8',
         'DBCollat' => 'utf8_general_ci',
         'swapPre'  => '',
@@ -49,7 +49,6 @@ class Database extends Config
         'failover' => [],
         'port'     => 3306,
     ];
-
     /**
      * This database connection is used when
      * running PHPUnit database tests.
@@ -88,5 +87,4 @@ class Database extends Config
             $this->defaultGroup = 'tests';
         }
     }
-    
 }

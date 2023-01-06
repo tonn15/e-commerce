@@ -59,7 +59,7 @@
                     <div class="text-right">
                         <h5 class="" style="font-weight: bold; font-size: 25px"><?= $total ?> $</h5>
                     </div>
-                    <a class="btn-lg btn-outline-info form-control text-center mb-3" id="checkout-button" href="<?= base_url('payer') ?>"><img src="<?= base_url('images/2560px-Stripe_Logo,_revised_2016.svg.png') ?> " class='img img-fluid' style="height: 35px;"></img></a>
+                    <a class="btn-lg btn-outline-info form-control text-center mb-3" style="height: 48px;" id="checkout-button" href="<?= base_url('payer') ?>"><img src="<?= base_url('images/2560px-Stripe_Logo,_revised_2016.svg.png') ?> " class='img img-fluid' style="height: 35px;"></img></a>
                     <div id="paypal-button-container"></div>
                     <!-- Sample PayPal credentials (client-id) are included -->
                     <script src="https://www.paypal.com/sdk/js?client-id=test&currency=USD&intent=capture&enable-funding=venmo" data-sdk-integration-source="integrationbuilder"></script>

@@ -76,8 +76,6 @@ class ConnexionController extends BaseController
             }
             return redirect()->to(base_url('/'));
         } else {
-            echo 'tsy ok';
-            die();
             return redirect()->to(base_url('connexion'));
         }
     }

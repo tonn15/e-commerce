@@ -37,7 +37,7 @@
 	<!-- user section start -->
 	<div class="">
 		<?php if (isset($_SESSION['user'])) : ?>
-			<div class="dropdown nav-item bg-dark" style="height: 34px;">
+			<div class="dropdown nav-item bg-dark pr-3" style="height: 34px;">
 				<a class="text-light dropdown-toggle float-right" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					<i class=" fa-solid fa-user fa-1x" style="border: solid 1px white;padding: 9px;border-radius: 50%;"></i>
 					<span class="d-none d-lg-inline-flex"><?= $_SESSION['user']['nom'] ?></span>

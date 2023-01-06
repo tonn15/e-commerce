@@ -1,4 +1,4 @@
-<div class="container mt-4">
+<div class="container p-4  ">
     <?php foreach ($commentaire as $comment) : ?>
         <div class="card mb-4">
             <div class="card-body">

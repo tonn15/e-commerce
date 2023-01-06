@@ -42,29 +42,27 @@ $routes->post('/a/(:any)', 'AccueilController::ajouter/$1');
 $routes->post('/news/(:any)', 'AccueilController::newsAjouter/$1');
 $routes->get('accueil', 'AccueilController::index');
 $routes->get('produit/(:num)', 'AfficherProduitController::index/$1');
-$routes->get('pannier', 'AfficherProduitController::pannierPage');
-$routes->get('pannier/supprimer/(:num)', 'AfficherProduitController::supprimerPannier/$1');
-$routes->get('pannier/(:num)', 'AfficherProduitController::pannier/$1');
 $routes->get('about', 'AboutController::index');
 $routes->get('contact', 'ContactController::index');
 $routes->get('profile', 'ProfileController::index');
 $routes->get('boutique', 'BoutiqueController::index');
 $routes->get('client', 'ClientController::index');
-$routes->get('connexion', 'ConnexionController::index');
-$routes->get('payer', 'PaimentsController::stripe');
-$routes->get('deconnexion', 'ConnexionController::deconnexion');
-$routes->get('inscription', 'ConnexionController::inscription');
-$routes->post('inscription/(:any)', 'ConnexionController::ajouterinscription/$1');
-$routes->post('commentaire/', 'CommentaireController::ajouterCommentaired/$1');
-$routes->post('connexion/(:any)', 'ConnexionController::connexion/$1');
 $routes->get('afficherProduit/(:num)', 'AdminController::AfficherProduit/$1');
 
-
-$routes->get('client', 'Client::index');
-$routes->post('client', 'Client::store');
-$routes->get('client/(:num)', 'Client::show/$1');
-$routes->post('client/(:num)', 'Client::update/$1');
-$routes->delete('client/(:num)', 'Client::destroy/$1');
+if (!isset($_SESSION['user'])) {
+    $routes->get('connexion', 'ConnexionController::index');
+    $routes->get('inscription', 'ConnexionController::inscription');
+    $routes->post('inscription/(:any)', 'ConnexionController::ajouterinscription/$1');
+    $routes->post('connexion/(:any)', 'ConnexionController::connexion/$1');
+}
+if (isset($_SESSION['user'])) {
+    $routes->get('deconnexion', 'ConnexionController::deconnexion');
+    $routes->get('payer', 'PaimentsController::stripe');
+    $routes->get('pannier', 'AfficherProduitController::pannierPage');
+    $routes->get('pannier/supprimer/(:num)', 'AfficherProduitController::supprimerPannier/$1');
+    $routes->get('pannier/(:num)', 'AfficherProduitController::pannier/$1');
+    $routes->post('commentaire', 'CommentaireController::ajouterCommentaired');
+}
 
 if (isset($_SESSION['user']) && $_SESSION['user']['role'] == 'dj;fisjdkflhkjhdufhskdjhfjsdfuhjhsdkfhuihiuhdf') {
     $routes->post('steev-admin/s/(:any)', 'AdminController::supprimerProduit/$1');
